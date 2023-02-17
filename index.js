@@ -41,10 +41,10 @@ function init() {
 }
 
 // function to write README file
-function writeToFile(fileName, data) {
-    // fs.appendFile('log.txt', stringToAppend, (err) =>
-        //     err ? console.error(err) : console.log('Success!')
-        // );
+function writeToFile(filename, data) {
+    fs.appendFile(filename, data, (err) =>
+        err ? console.error(err) : console.log('Success!')
+    );
     console.log('writeToFile');
 }
 
