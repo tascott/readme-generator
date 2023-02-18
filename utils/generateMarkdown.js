@@ -1,3 +1,5 @@
+const licenseObject = require("./licenses");
+
 // function to generate markdown for README
 function generateMarkdown(data) {
   let tableOfContents = ``;
@@ -5,6 +7,7 @@ function generateMarkdown(data) {
   let contact = ``;
   let markup = ``;
   let title = ``;
+  let licenseBadge = ``;
 
   // Loop over each item in the data object
   Object.entries(data).forEach(([key, value]) => {
@@ -45,10 +48,14 @@ function generateMarkdown(data) {
     if (key === 'license') {
       body += `## License\n${value}\n`
       tableOfContents += `* [License](#license)\n`
+      // find the key from the license object and return the value
+      const license = Object.keys(licenseObject).find(key => key === value);
+      const badgeURL = licenseObject[license];
+      title += `![GitHub license](${badgeURL})\n`
     };
 
     if (key === 'email') {
-      contact += `If you have any questions about the repo, open an issue or contact me directly at ${value}.\n`
+      contact += `If you have any questions about the repo, open an issue or [contact me directly]($mailto:{value}).\n`
     };
 
     if (key === 'github') {
