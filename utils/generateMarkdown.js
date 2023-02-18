@@ -46,7 +46,7 @@ function generateMarkdown(data) {
     };
 
     if (key === 'license') {
-      body += `## License\n${value}\n`
+      body += `## License\nThis project is licensed under ${value}\n`
       tableOfContents += `* [License](#license)\n`
       // find the key from the license object and return the value
       const license = Object.keys(licenseObject).find(key => key === value);
@@ -76,6 +76,8 @@ function generateMarkdown(data) {
   //Add body if any body content is present
   if (body.length) {
     markup += `${body}\n`;
+    // This will add a new line before and after code blocks to make them render properly
+    markup = markup.replace(/```/g, '\n```\n');
   }
 
   //Add contact section if either email or github is present
