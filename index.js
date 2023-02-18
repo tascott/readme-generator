@@ -13,7 +13,7 @@ const questions = [
     { type: 'input', name: 'description', message: 'What is the project description?' },
     { type: 'input', name: 'installation', message: 'What are the installation instructions?' },
     { type: 'input', name: 'usage', message: 'What is the usage information?' },
-    { type: 'input', name: 'contribution', message: 'What are the contribution guidelines?' },
+    { type: 'input', name: 'contributions', message: 'What are the contribution guidelines?' },
     { type: 'input', name: 'test', message: 'What are the test instructions?' },
     { type: 'input', name: 'github', message: 'What is your GitHub username?' },
     { type: 'input', name: 'email', message: 'What is your email address?' },
