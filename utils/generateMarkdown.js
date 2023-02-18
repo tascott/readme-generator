@@ -1,40 +1,82 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  let tableOfContents = ``;
+  let body = ``;
+  let contact = ``;
+  let markup = ``;
+  let title = ``;
 
-  ## Description
-  ${data.description}
+  // Loop over each item in the data object
+  Object.entries(data).forEach(([key, value]) => {
+    // if no value, return, to avoid empty headings
+    if (!value) {
+      return;
+    }
 
-  ## Table of Contents
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contributions](#contributions)
-  * [Tests](#tests)
-  * [License](#license)
-  * [Questions](#questions)
+    if (key === 'title') {
+      title += `# ${value}\n`
+    };
 
-  ## Installation Instructions
-  ${data.installation}
+    if (key === 'description') {
+      body += `## Description\n${value}\n`
+      tableOfContents += `* [Description](#description)\n`
+    };
 
-  ## Usage
-  ${data.usage}
+    if (key === 'installation') {
+      body += `## Installation Instructions\n${value}\n`
+      tableOfContents += `* [Installation Instructions](#installation-instructions)\n`
+    };
 
-  ## Contributions
-  ${data.contributions}
+    if (key === 'usage') {
+      body += `## Usage\n${value}\n`
+      tableOfContents += `* [Usage](#usage)`
+    };
 
-  ## Tests
-  ${data.test}
+    if (key === 'contributions') {
+      body += `## Contributions\n${value}\n`
+      tableOfContents += `* [Contributions](#contributions)\n`
+    };
 
-  ## License
-  ${data.license}
+    if (key === 'test') {
+      body += `## Tests\n${value}\n`
+      tableOfContents += `* [Tests](#tests)\n`
+    };
 
-  ## Questions
-  If you have any questions about the repo, open an issue or contact me directly at ${data.email}. You can find more of my work at ${data.github}.
+    if (key === 'license') {
+      body += `## License\n${value}\n`
+      tableOfContents += `* [License](#license)\n`
+    };
 
-  [Tests](#tests)
+    if (key === 'email') {
+      contact += `If you have any questions about the repo, open an issue or contact me directly at ${value}.\n`
+    };
 
+    if (key === 'github') {
+      contact += `You can find more of my work on [Github](https://www.github.com/${value}/)\n`
+    };
+  });
 
-`;
+  //Add title to top of file
+  if (title.length) {
+    markup += `${title}\n`;
+  }
+
+  //Add table of contents if any headings are present
+  if (tableOfContents.length) {
+    markup += `## Table of Contents\n${tableOfContents}\n`;
+  }
+
+  //Add body if any body content is present
+  if (body.length) {
+    markup += `${body}\n`;
+  }
+
+  //Add contact section if either email or github is present
+  if (contact.length) {
+    markup += `## Questions\n${contact}\n`
+  }
+
+  return markup;
 }
 
 module.exports = generateMarkdown;
