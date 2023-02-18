@@ -17,11 +17,10 @@ To install necessary dependencies, run the following command:
  npm install
 ```
 
-## Screenshot
-
-
 ## Usage
 You can use this application by running `node index.js`.
+## Screenshot
+<img width="580" alt="Screenshot 2023-02-18 at 17 26 07" src="https://user-images.githubusercontent.com/18272434/219879713-6a3e8180-9412-4aaf-8632-1d7a8a14e15f.png">
 ## Contributions
 To contribute, fork the project and open a pull request.
 ## Tests
