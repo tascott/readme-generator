@@ -17,9 +17,6 @@ To install necessary dependencies, run the following command:
  npm install
 ```
 
-## Screenshot
-
-
 ## Usage
 You can use this application by running `node index.js`.
 ## Contributions

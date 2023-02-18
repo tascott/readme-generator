@@ -25,7 +25,7 @@ function init() {
     inquirer.prompt(questions)
     .then((response) => {
         //write to file - this will overwrite the README.md file rather than append
-        writeToFile('README.md', generateMarkdown(response));
+        writeToFile('READMEforRubric.md', generateMarkdown(response));
     });
 }
 

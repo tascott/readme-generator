@@ -55,7 +55,7 @@ function generateMarkdown(data) {
     };
 
     if (key === 'email') {
-      contact += `If you have any questions about the repo, open an issue or [contact me directly]($mailto:{value}).\n`
+      contact += `If you have any questions about the repo, open an issue or [contact me directly](mailto:${value}).\n`
     };
 
     if (key === 'github') {
