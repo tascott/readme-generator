@@ -24,21 +24,16 @@ const questions = [
 function init() {
     inquirer.prompt(questions)
     .then((response) => {
-        //jsonify the response
-        console.log(response);
-        const stringToAppend = JSON.stringify(response);
-        console.log(stringToAppend);
-        //write to file
+        //write to file - this will overwrite the README.md file rather than append
         writeToFile('README.md', generateMarkdown(response));
     });
 }
 
 // function to write README file
 function writeToFile(filename, data) {
-    fs.appendFile(filename, data, (err) =>
+    fs.writeFile(filename, data, (err) =>
         err ? console.error(err) : console.log('Success!')
     );
-    console.log('writeToFile');
 }
 
 // function call to initialize program

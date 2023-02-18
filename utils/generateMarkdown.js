@@ -32,7 +32,7 @@ function generateMarkdown(data) {
 
     if (key === 'usage') {
       body += `## Usage\n${value}\n`
-      tableOfContents += `* [Usage](#usage)`
+      tableOfContents += `* [Usage](#usage)\n`
     };
 
     if (key === 'contributions') {
